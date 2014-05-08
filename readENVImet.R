@@ -5,12 +5,29 @@
 readENVImet3Data <- function(metafile, datafile) {
 
 meta=readLines(metafile)
+
+versioncontrol <-grepl("CreatedwithENVI-metV3.1BETA4",gsub(" ","",meta[length(meta)]))
+
+if (versioncontrol=TRUE) 
+
+cat("Your are using ENVI-met Version 3.x") {
 cat(meta[1]) # V3.1
 
 n_x_grids = strtoi(meta[2])
 n_y_grids = strtoi(meta[3])
 n_z_grids = strtoi(meta[4])
 n_variables = strtoi(meta[5])
+}
+else {
+
+cat("Your are using ENVI-met Version 4")
+cat(meta[2]) # V4
+   
+n_x_grids = strtoi(meta[3])
+n_y_grids = strtoi(meta[4])
+n_z_grids = strtoi(meta[5])
+n_variables = strtoi(meta[6])
+}
 
 dim=c(n_x_grids,n_y_grids,n_z_grids,n_variables)
 
@@ -33,6 +50,8 @@ return(EMdata)  }
 
 #dir <- "C:/ENVImet31/output/Bachelorarbeit/Tilia_75ys/atmosphere/"
 # dir <- "c:/Users/Krug/Documents/UrbanTreePaper/BaummodellTilia/output/cb_0ys_hb100/atmosphere/" # ENVI-met V4 Data Example
+ path_v4 <- "/Users/alexanderkrug/Dropbox/FG Klimatologie/LF_ALB07_AT_23.00.01 21.06.2013.EDI"
+ path_v3 <- "/Users/alexanderkrug/Dropbox/FG Klimatologie/cb_20ys_hb075_AT_00.00.00 22.06.2012.EDI" 
 
 metafile.list=list.files(dir,pattern = "EDI")
 # sort by correct data order
