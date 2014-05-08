@@ -1,7 +1,7 @@
 Package: FG.Klimatologie
 Type: Package
 Title: Package for the chair of Climatology at TU Berlin
-Version: 0.1
+Version: 0.2
 Date: 2014-04-30
 Author: Carsten Vick, Alexander Krug
 Maintainer: Carsten Vick <carsten.vick@campus.tu-berlin.de>

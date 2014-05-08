@@ -1,11 +1,11 @@
 \name{calc_utci}
 \alias{calc_utci}
 %- Also NEED an '\alias' for EACH other topic documented here.
-\title{utci
-%%  ~~function to do ... ~~
+\title{
+Calculation of the Universal Thermal Climate Index
 }
 \description{
-%%  ~~ A concise (1-5 lines) description of what the function does. ~~
+Calculates the Universal Thermal Climate Index (UTCI) from HRS-Data.
 }
 \usage{
 calc_utci(x)
@@ -13,24 +13,20 @@ calc_utci(x)
 %- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{x}{
-%%     ~~Describe \code{x} here~~
+A table containing MRT, Ta, RH and Wind Speed.
 }
 }
 \details{
 %%  ~~ If necessary, more details than the description above ~~
 }
 \value{
-%%  ~Describe the value returned
-%%  If it is a LIST, use
-%%  \item{comp1 }{Description of 'comp1'}
-%%  \item{comp2 }{Description of 'comp2'}
-%% ...
+Returns the UTCI-Value in deg Celsius rounded by one digit.
 }
 \references{
-%% ~put references to the literature/web site here ~
+http://www.utci.org/
 }
 \author{
-%%  ~~who you are~~
+FG Klimatologie (TU-Berlin), Alexander Krug
 }
 \note{
 %%  ~~further notes~~
@@ -42,14 +38,11 @@ calc_utci(x)
 %% ~~objects to See Also as \code{\link{help}}, ~~~
 }
 \examples{
-##---- Should be DIRECTLY executable !! ----
-##-- ==>  Define data, use random,
-##--	or do  help(data=index)  for the standard data sets.
 
 ## The function is currently defined as
 function (x) 
 {
-    Tmrt = calc_tmrt(x)
+    mrt = calc_mrt(x)
     g = c(-2836.5744, -6028.076559, 19.54263612, -0.02737830188, 
         1.6261698e-05, 7.0229056e-10, -1.8680009e-13, 2.7150305)
     tk = x$Ta + 273.15
@@ -62,7 +55,7 @@ function (x)
     Pa = ehPa/10
     va = (log(10/0.01)/log(1.77/0.01)) * x$Wind_Speed
     Ta = x$Ta
-    D_Tmrt = Tmrt - Ta
+    D_Tmrt = mrt - Ta
     UTCI = Ta + (0.607562052) + (-0.0227712343) * Ta + (0.000806470249) * 
         Ta * Ta + (-0.000154271372) * Ta * Ta * Ta + (-3.24651735e-06) * 
         Ta * Ta * Ta * Ta + (7.32602852e-08) * Ta * Ta * Ta * 
@@ -239,7 +232,7 @@ function (x)
         (0.00104452989) * va * Pa * Pa * Pa * Pa * Pa + (0.000247090539) * 
         D_Tmrt * Pa * Pa * Pa * Pa * Pa + (0.00148348065) * Pa * 
         Pa * Pa * Pa * Pa * Pa
-    return(UTCI)
+    return(round(UTCI, 1))
   }
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
