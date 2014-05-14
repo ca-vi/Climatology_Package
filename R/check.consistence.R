@@ -12,12 +12,12 @@ for (i in 1:(length(data$RECORD)-1)) {
   }
 }
 if (length(rn_fehler)>1 & info==TRUE) {
-  cat("\n Fehler in Recordnumber in ZEILE:\n",rn_fehler,file="fehlerzeilen.txt")
-  print(cat("!ACHTUNG!: Fehler in Recordnumber in ZEILE:",rn_fehler,"\n"))
+  cat("\n ERROR in Recordnumber in ROW:\n",rn_fehler,file="inconsistency.txt")
+  print(cat("!ATTENTION!: ERROR in Recordnumber in ROW:",rn_fehler,"\n"))
 }
 if (length(ts_fehler)>1 & info==TRUE) {
-  cat("\n Fehler in Timestamp in ZEILE:\n",ts_fehler,file="fehlerzeilen.txt", append=TRUE)
-  print(cat("!ACHTUNG!: Fehler in Timestamp in ZEILE:",ts_fehler,"\n"))
+  cat("\n ERROR in Timestamp in ROW:\n",ts_fehler,file="inconsistency.txt", append=TRUE)
+  print(cat("!ATTENTION!: ERROR in Timestamp in ROW:",ts_fehler,"\n"))
 }
 
 

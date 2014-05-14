@@ -1,84 +1,27 @@
 \name{check.consistence}
 \alias{check.consistence}
 %- Also NEED an '\alias' for EACH other topic documented here.
-\title{
-%%  ~~function to do ... ~~
-}
-\description{
-%%  ~~ A concise (1-5 lines) description of what the function does. ~~
-}
+\title{Check a dataset for inconsistencies in Timestamp or Recordnumber}
+\description{Searches through the dataset and controlls whether the Timestamp is equidistant and the Recordnumber is growing by an increment of 1. Creates an .txt when finding any inconsistency}
 \usage{
 check.consistence(data)
 }
-%- maybe also 'usage' for other objects documented here.
 \arguments{
-  \item{data}{
-%%     ~~Describe \code{data} here~~
+  \item{data}{Data from the read.loggerdat function. The first column has to be "TIMESTAMP", the second has to be "RECORD"}
 }
-}
-\details{
-%%  ~~ If necessary, more details than the description above ~~
+\details{This function uses the distance between the first two TIMESTAMPs. If these are not representative you have to preprocess your data. A look into str(data) can prevent this kind of mistake by having an eye on the TIMESTAMP column.
 }
 \value{
-%%  ~Describe the value returned
-%%  If it is a LIST, use
-%%  \item{comp1 }{Description of 'comp1'}
-%%  \item{comp2 }{Description of 'comp2'}
-%% ...
+  \item{Console message}{If there is something fishy going on you'll get a message}
+  \item{.txt data}{Every row listed here is damaged. Visiting these directly often gives insight to the type of error.}
 }
-\references{
-%% ~put references to the literature/web site here ~
-}
-\author{
-%%  ~~who you are~~
-}
-\note{
-%%  ~~further notes~~
-}
-
-%% ~Make other sections like Warning with \section{Warning }{....} ~
-
+\references{www.klima.tu-berlin.de}
+\author{Carsten Vick (carsten.vick@campus.tu-berlin.de)}
+\note{last update: 2014-05-14 TO DO: getting clean messages and a better formated .txt item}
 \seealso{
-%% ~~objects to See Also as \code{\link{help}}, ~~~
+  \code{\link{read.loggerdat}}
 }
-\examples{
-##---- Should be DIRECTLY executable !! ----
-##-- ==>  Define data, use random,
-##--	or do  help(data=index)  for the standard data sets.
 
-## The function is currently defined as
-function (data) 
-{
-    rn_fehler <- 0
-    ts_diff <- difftime(data$TIMESTAMP[2], data$TIMESTAMP[1], 
-        units = "secs")
-    ts_fehler <- 0
-    for (i in 1:(length(data$RECORD) - 1)) {
-        if (data$RECORD[i + 1] - data$RECORD[i] != 1) 
-            rn_fehler <- c(rn_fehler, i)
-        if (difftime(data$TIMESTAMP[i + 1], data$TIMESTAMP[i]) != 
-            ts_diff) {
-            ts_fehler <- c(ts_fehler, i)
-        }
-        else {
-            ts_diff <- difftime(data$TIMESTAMP[i + 1], data$TIMESTAMP[i], 
-                units = "secs")
-        }
-    }
-    if (length(rn_fehler) > 1 & info == TRUE) {
-        cat("\n Fehler in Recordnumber in ZEILE:\n", rn_fehler, 
-            file = "fehlerzeilen.txt")
-        print(cat("!ACHTUNG!: Fehler in Recordnumber in ZEILE:", 
-            rn_fehler, "\n"))
-    }
-    if (length(ts_fehler) > 1 & info == TRUE) {
-        cat("\n Fehler in Timestamp in ZEILE:\n", ts_fehler, 
-            file = "fehlerzeilen.txt", append = TRUE)
-        print(cat("!ACHTUNG!: Fehler in Timestamp in ZEILE:", 
-            ts_fehler, "\n"))
-    }
-  }
-}
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.
 \keyword{ ~kwd1 }
