@@ -17,7 +17,7 @@ check.consistence(data)
 }
 \references{www.klima.tu-berlin.de}
 \author{Carsten Vick (carsten.vick@campus.tu-berlin.de)}
-\note{last update: 2014-05-14 TO DO: getting clean messages and a better formated .txt item}
+\note{last update: 2014-05-14 TO DO: getting clean messages and a better formated .txt item, !!! great idea: mode of differences as indicator for errors in timestamp (now: 1st value is taken which leads to misbhavior when this value is wrong)}
 \seealso{
   \code{\link{read.loggerdat}}
 }
