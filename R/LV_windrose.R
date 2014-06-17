@@ -1,4 +1,4 @@
-windrose<-function(windspeed, winddir){
+windrose<-function(windspeed, winddir, r=5,p=10){
   # Stand: 03.12.2013
   #
   # windrose ist eine Funktion um Winddaten aus den Campbell Datenloggern in Windrosen zu plotten.
@@ -41,5 +41,5 @@ windrose<-function(windspeed, winddir){
      
        }
   # die so entstandene windv_class hat genau die Dimensionen die von der rosavent-Funktion benötigt wird.
-  rosavent(windv_class,5,10,ang=-3*pi/16,main="Windrose der Station")
+  rosavent(windv_class,r,p,ang=-3*pi/16,main="Windrose der Station")
 }
