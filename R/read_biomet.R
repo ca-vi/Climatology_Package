@@ -31,8 +31,8 @@ read_BIOMET <- function (file_bm1, file_bm2, file_wm, all=F){
     return(data)} 
     else {    
       sel = c('TIMESTAMP', 'SW_downwelling', 'SW_upwelling','SW_east','SW_west','SW_south', 'SW_north', 
-              'LW_downwelling', 'LW_upwelling', 'LW_east','LW_west','LW_south', 'LW_north', 'Ta', 'RH', 
-              'Tglobe', 'Tglobe_7011', 'Wind_Speed', 'Wind_Direction')
+              'LW_downwelling', 'LW_upwelling', 'LW_east','LW_west','LW_south', 'LW_north', 'Ta', 'RH',
+              'Wind_Speed', 'Wind_Direction', 'Tglobe', 'Tglobe_7011')
       data <- data[sel]
       return(data)
     }
