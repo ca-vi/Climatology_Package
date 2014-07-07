@@ -9,9 +9,10 @@
 # this calculation seems to be not correct due to wrong description in DIN EN ISO...
 
 # last Changes
-# 21.02.2014
+# 7.7.2014
 
-# rename Tmrt to MRT 
+# change °C to K calculation to +273
+# validation of the function with ISO 7730:2005(E)
   
 calc_pmv = function(x, clo, met){
 
@@ -40,12 +41,11 @@ fcl   = if (icl <= .078)  {1+1.29*icl} else {1.05+0.645*icl} # clothing area fac
 
 #convection
 hcf   = 12.1*sqrt(x$Wind_Speed) # heat transf. coeff. by forced convection
-ta_k  = x$Ta+273.15 # air temperature in Kelvin
-tr_k  = mrt+273.15 # mean radiant temperature in Kelvin
+ta_k  = x$Ta+273 # air temperature in Kelvin
+tr_k  = mrt+273 # mean radiant temperature in Kelvin
 
 #CALCULATE SURFACE TEMPERATURE OF CLOTHING BY ITERATION
-tcla  = ta_k + (35.5-x$Ta) / (3.5*(6.45*icl+.1))
-#tcla  = ta_k + (35.5-x$Ta) / (3.5*icl+.1)
+tcla  = ta_k + (35.5-x$Ta) / (3.5*icl+.1)
 
 p1    = icl*fcl
 p2    = p1*3.96
@@ -71,7 +71,7 @@ xn    =(p5+p4*hc-p2*xf^4) / (100+p3*hc)
 n = n+1
 if (n > 150) {pmv=-9999}
 }  
-tcl   =100*xn-273.15 # surface temperature of the clothing
+tcl   =100*xn-273 # surface temperature of the clothing
 
 ############# HEAT LOSS COMPONENTS #################
 
