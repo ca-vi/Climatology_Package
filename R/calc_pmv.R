@@ -11,13 +11,15 @@
 # last Changes
 # 7.7.2014
 
-# change Â°C to K calculation to +273
-# validation of the function with ISO 7730:2005(E)
+# change °C to K calculation to +273
+# validation of function with ISO 7730:2005(E)
   
 calc_pmv = function(x, clo, met){
 
   if (length(x[is.na(x)==TRUE]) > 0 ) 
     stop("Input data contains missing values. PMV calculation is not possible. Please remove NA's and try again.")
+  
+  # hier evtl. NA-Ausgabe einbauen
   
 mrt  = calc_mrt(x)
 

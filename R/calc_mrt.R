@@ -1,11 +1,8 @@
-#############################################################
-### Calculation of Tmrt according to Thorsson et al. 2007 ###
-#############################################################
+############################################################
+### Calculation of MRT according to Thorsson et al. 2007 ###
+############################################################
 
 # Written by Alex Krug 2013
-
-# Please use the "read_biomet_and_agg"-skript for correct notation
-
 
 # last Changes
 # 21.02.2014 -------------------
