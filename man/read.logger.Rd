@@ -7,7 +7,7 @@
 read.logger(file, info = TRUE)
 }
 \arguments{
-  \item{file}{character Vektor indicating the Directory path to your data}
+  \item{file}{character, indicating the Directory path to your data e.g. "/home/myRProject/mydata.txt"}
   \item{info}{logical, whether or not you want to print str(data) with reading the data.
 }
 \value{
