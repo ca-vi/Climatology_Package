@@ -1,3 +1,3 @@
 plot.ts <- function(data, var, ...){
-  plot(x$TIMESTAMP,x$y,type="l")
+  plot(data$TIMESTAMP,data$var,type="l")
 }

@@ -1,4 +1,4 @@
-read.loggerdat <- function (file, info=TRUE) {
+read.logger <- function (file, info=TRUE) {
   
   data <- read.csv(file, header = FALSE, skip = 4)
   names(data) <- names(read.csv(file, skip = 1))
