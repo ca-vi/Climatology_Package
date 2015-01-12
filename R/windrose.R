@@ -1,4 +1,4 @@
-windrose<-function(windspeed, winddir, r=5,p=10){
+windrose<-function(windspeed, winddir, r=5, p=10, title = NULL){
   # Stand: 03.12.2013
   #
   # windrose ist eine Funktion um Winddaten aus den Campbell Datenloggern in Windrosen zu plotten.
@@ -17,9 +17,8 @@ windrose<-function(windspeed, winddir, r=5,p=10){
   # Die Variablennamen sind an einigen Stellen uneindeutig bezeichnet und sind oft Hilfsvariablen.
   # Falls es Fragen zum Code gibt, bitte an <britta.jaenicke@yahoo.de> wenden.
   
-  library(climatol) # laden des packages
-  data(windfr) # laden des data.frames aus dem Beispiel (ist bereits gut vordefiniert)
-  windv_class<- windfr*0 # löschen der Daten aus dem Beispiel
+  windv_class<- as.data.frame(matrix(0, 4, 16))
+  names(windv_class) <- c("N", "NNE", "NE", "ENE", "E", "ESE", "SE", "SSE", "S", "SSW", "SW", "WSW", "W", "WNW", "NW", "NNW")
   dirup <- c(11.25,33.75,56.25,78.75,101.25,123.75,146.25,168.75,191.25,213.75,236.25,258.75,281.25,303.75,326.25,348.75) #festlegen der Gruppenobergrenzen
   dirlow <-c(348.75,11.25,33.75,56.25,78.75,101.25,123.75,146.25,168.75,191.25,213.75,236.25,258.75,281.25,303.75,326.25) #festlegen der Grupenuntergrenzen
   speedup <- c(0.5,1.0,1.5,2.0) #festlegen der Geschwindigkeitsobergrenzen
@@ -41,5 +40,5 @@ windrose<-function(windspeed, winddir, r=5,p=10){
      
        }
   # die so entstandene windv_class hat genau die Dimensionen die von der rosavent-Funktion benötigt wird.
-  rosavent(windv_class,r,p,ang=-3*pi/16,main="Windrose der Station")
+  plotWindrose(windv_class, r, p, ang=-3*pi/16, main=title)
 }
