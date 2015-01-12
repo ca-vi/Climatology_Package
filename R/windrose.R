@@ -1,4 +1,4 @@
-windrose<-function(windspeed, winddir, r=5, p=10, title = NULL){
+windrose <- function(windspeed, winddir, r=5, p=10, title = NULL){
   # Stand: 03.12.2013
   #
   # windrose ist eine Funktion um Winddaten aus den Campbell Datenloggern in Windrosen zu plotten.
