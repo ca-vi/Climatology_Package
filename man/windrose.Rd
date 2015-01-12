@@ -19,7 +19,7 @@ windrose(windspeed, winddir, title)
 %%     ~~Describe \code{winddir} here~~
 }
   \item{title}{
-%%     ~~Describe \code{winddir} here~~
+%%     ~~Describe \code{title} here~~
 }
 }
 \details{
