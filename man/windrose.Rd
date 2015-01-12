@@ -8,7 +8,7 @@
 %%  ~~ A concise (1-5 lines) description of what the function does. ~~
 }
 \usage{
-windrose(windspeed, winddir)
+windrose(windspeed, winddir, title)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -17,6 +17,9 @@ windrose(windspeed, winddir)
 }
   \item{winddir}{
 %%     ~~Describe \code{winddir} here~~
+}
+  \item{title}{
+%%     ~~Describe \code{title} here~~
 }
 }
 \details{
