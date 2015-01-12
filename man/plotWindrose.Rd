@@ -1,7 +1,7 @@
 \name{plotWindrose}
 \alias{plotWindrose}
 %- Also NEED an '\alias' for EACH other topic documented here.
-\title{
+\title{plotWindrose help function called by windrose
 %%  ~~function to do ... ~~
 }
 \description{
