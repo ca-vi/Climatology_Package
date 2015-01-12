@@ -50,7 +50,7 @@ windrose(windspeed, winddir)
 ##--	or do  help(data=index)  for the standard data sets.
 
 ## The function is currently defined as
-function (windspeed, winddir) 
+function (windspeed, winddir, title = "Windrose der Station") 
 {
     library(climatol)
     data(windfr)
@@ -82,7 +82,7 @@ function (windspeed, winddir)
             windv_class[a, b] <- cnt
         }
     }
-    rosavent(windv_class, 5, 10, ang = -3 * pi/16, main = "Windrose der Station")
+    rosavent(windv_class, 5, 10, ang = -3 * pi/16, main = title)
   }
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
