@@ -52,3 +52,8 @@ windspeed_conversion <- function (x, unit=c("m/s","km/h","B","kn"), into=c("m/s"
     }
   }
 }
+
+cart2polar <- function(u,v) {
+  d <- complex(real = -v, imaginary = -u)
+  data.frame(r = Mod(d),  theta = (Arg(d) %% (2*pi) * 360/(2*pi)))
+}

@@ -1,33 +1,3 @@
-###################################################################################################
-#
-## Kontext: Version 1.0 R - Skript Projekt "Prima Campusklima" 2013 
-#         
-#
-## Zweck: Funktion zur Kürzung auf die Standzeiten des HUMVE. Übergeben werden die Meteo- und die Winddaten.
-#         Kürzen der Daten auf die Standzeiten und Zuordnung zu den einzelnen Stationen.
-#
-## Aufbau: 
-#
-## Eingabe: Humvedaten und Protokollzeiten als data.frame. (e.g.: mit dem readin_loggerdat.R + readin_humveprotokoll.R)
-#       
-## Ausgabe: Ein data.frame mit gleichem Aufbau wie die Humvedaten,
-#           allerdings ohne Daten bei Bewegung und mit zugeordneter Stationsnummer statt Recordnumber.
-#           Mit der split() Funktion sind dann die einzelnen Stationen leicht zugänglich.
-#
-## Benoetigte Pakete: ---
-#
-#
-## Autoren: Carsten Vick <carsten.vick@campus.tu-berlin.de>
-#
-## Letzte Änderung: 05.01.2014
-# 
-#
-## TO DO :  sd(XAng) 
-#           Da die Aussagekraft von 3Minuten Windmittelung als Stundenwert fraglich ist, wird noch Min und Max angegeben?
-#
-###################################################################################################
-
-
 humve_stationszuordnung_mittelwerte <- function (humvedata_meteo, humvedata_wind, humvedata_gill, protokolldata) {
   
   # new.data wird die Ausgabedatei:
@@ -44,11 +14,12 @@ humve_stationszuordnung_mittelwerte <- function (humvedata_meteo, humvedata_wind
     standzeitmittelung_daten <- sapply(sapply (cbind(humvedata_meteo[,(3:7)],humvedata_meteo[,(10:12)],humvedata_wind[,3:5],humvedata_gill[,3:4],humvedata_gill[,7:8]) [ humvedata_meteo$TIMESTAMP >= protokolldata$beginn[i] & humvedata_meteo$TIMESTAMP <= protokolldata$ende[i] ,  ] , mean), round, 2)
     new.data[i,(3:17)] <- standzeitmittelung_daten    
   }
+  new.data[,11:12] <- cart2polar(u = new.data[,14], v = new.data[,15])
   new.data$station <- protokolldata$station
   new.data$TIMESTAMP <- protokolldata$ende
   new.data$KT19 <- protokolldata$KT.19
   print(str(new.data))
-  new.data
+  invisible(new.data)
 }
 
 humve_stationszuordnung_ungemittelt <- function (humvedata_meteo, humvedata_wind, humvedata_gill, protokolldata) {
@@ -73,5 +44,5 @@ humve_stationszuordnung_ungemittelt <- function (humvedata_meteo, humvedata_wind
   }
   names(result) <- c("TIMESTAMP","station","Ta_150cm","RH_150cm","NETRAD","KWO","KWU","IRTS","ANGX","ANGY","WS","WD","SIGMA_WD","U","V","W","Tv","KT19")
   print(str(result))
-  result
+  invisible(result)
 }

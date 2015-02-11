@@ -2,24 +2,24 @@
 \alias{check.consistence}
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{Check a dataset for inconsistencies in Timestamp or Recordnumber}
-\description{Searches through the dataset and controlls whether the Timestamp is equidistant and the Recordnumber is growing by an increment of 1. Creates an .txt when finding any inconsistency}
+\description{The function will search through the dataset and checks whether the Timestamp is equidistant and the Recordnumber is growing by an increment of 1. Creates an inconsistency.txt when finding any inconsistencies}
 \usage{
 check.consistence(data)
 }
 \arguments{
-  \item{data}{Data from the read.loggerdat function. The first column has to be "TIMESTAMP", the second has to be "RECORD"}
+  \item{data}{    Data from the \link{read.logger} function .Their has to be one column named "TIMESTAMP" and one called "RECORD"}
 }
-\details{This function uses the distance between the first two TIMESTAMPs. If these are not representative you have to preprocess your data. A look into str(data) can prevent this kind of mistake by having an eye on the TIMESTAMP column.
-}
+\details{This function uses the most frequent distance between TIMESTAMPs. In very short data.frames this could lead to an FALSE}
 \value{
+  \item{logical}{Returning TRUE if everything was fine, returning FALSE otherwise.}
   \item{Console message}{If there is something fishy going on you'll get a message}
-  \item{.txt data}{Every row listed here is damaged. Visiting these directly often gives insight to the type of error.}
+  \item{inconsistency.txt}{Every row listed here is damaged. Visiting these directly often gives insight to the type of error.}
 }
 \references{www.klima.tu-berlin.de}
 \author{Carsten Vick (carsten.vick@campus.tu-berlin.de)}
-\note{last update: 2014-05-14 TO DO: getting clean messages and a better formated .txt item, !!! great idea: mode of differences as indicator for errors in timestamp (now: 1st value is taken which leads to misbhavior when this value is wrong)}
+\note{last update: 2015-02-11 TO DO: getting clean messages and a better formated .txt item !!!}
 \seealso{
-  \code{\link{read.loggerdat}}
+  \code{\link{read.logger}}
 }
 
 % Add one or more standard keywords, see file 'KEYWORDS' in the
