@@ -12,8 +12,8 @@ humve_stationszuordnung_mittelwerte <- function (humvedata_meteo, humvedata_wind
   
   for (i in seq_along(protokolldata$station) )  {
     standzeitmittelung_daten <- sapply(sapply (cbind(humvedata_meteo[,(3:7)],humvedata_meteo[,(10:12)],humvedata_wind[,3:5],humvedata_gill[,3:4],humvedata_gill[,7:8]) [ humvedata_meteo$TIMESTAMP >= protokolldata$beginn[i] & humvedata_meteo$TIMESTAMP <= protokolldata$ende[i] ,  ] , mean), round, 2)
-    new.data[i,(3:17)] <- standzeitmittelung_daten    
-  }
+    new.data[i,(3:17)] <- standzeitmittelung_daten
+    }
   new.data[,11:12] <- cart2polar(u = new.data[,14], v = new.data[,15])
   new.data$station <- protokolldata$station
   new.data$TIMESTAMP <- protokolldata$ende
@@ -35,7 +35,7 @@ humve_stationszuordnung_ungemittelt <- function (humvedata_meteo, humvedata_wind
     gill <- humvedata_gill[humvedata_gill$TIMESTAMP >= protokolldata$beginn[i] & humvedata_gill$TIMESTAMP <= protokolldata$ende[i],]
     station <- rep(protokolldata$station[i],length.out=length(meteo[,1]))
     kt19 <- rep(protokolldata$KT.19[i],length.out=length(meteo[,1]))
-
+  
     if (!exists("result")){
       result <- as.data.frame(cbind(meteo[,1],station,meteo[,3:7],meteo[,10:12],wind[,3:5],gill[,3:4],gill[,7:8],kt19))
     } else {

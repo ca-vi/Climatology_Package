@@ -1,13 +1,12 @@
-read.logger <- function (file, info=FALSE) {
+read.logger <- function (file, info=FALSE, ...) {
   
-  data <- read.csv(file, header = FALSE, skip = 4, na.strings="NAN")
+  data <- read.csv(file, header = FALSE, skip = 4, na.strings="NAN", ...)
   names(data) <- names(read.csv(file, skip = 1))
-  if (!is.numeric(data$RECORD[1])){
-    print("ERROR in data. Review the data!")
-    stop
+  if (!exists(data$TIMESTAMP | data$RECORD)){
+    stop("Could not read the data properly. Please check the head of table in the file.")
   } else {
   
-  data$TIMESTAMP <- as.POSIXct(strptime(data$TIMESTAMP, format="%Y-%m-%d %H:%M:%S"))
+  data$TIMESTAMP <- as.POSIXct(data$TIMESTAMP, format="%Y-%m-%d %H:%M:%S")
   
   if (info==TRUE) print(str(data))  
   invisible(data)
