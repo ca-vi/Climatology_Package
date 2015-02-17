@@ -10,7 +10,7 @@ read.logger(file, info = TRUE)
   \item{file}{character, indicating the Directory path to your data e.g. "/home/myRProject/mydata.txt"}
   \item{info}{logical, whether or not you want to print str(data) with reading the data.
 }
-\value{
+\value{ Gives a data.frame with following columns:
   \item{TIMESTAMP}{The timestamp in date-time format}
   \item{RECORD}{The recordnumber in sequence (best case)}
   \item{Temp, RH, IRTS, Rad, ShortIn, Windspeed, Rain, ...}{Different meteorological elements like temperature or metadata as from the inclinometer}

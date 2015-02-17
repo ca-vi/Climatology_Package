@@ -13,7 +13,7 @@ windspeed_conversion(x, unit=c("m/s","km/h","B","kn"), into=c("m/s","km/h","B","
   \item{into}{The output unit. Choose from "m/s","km/h","B","kn"}
   \item{num}{A logical parameter indicating whether the returned value should be numeric or a character object with number and unit}
 }
-\value{If num is FALSE (default) paste() is called to write the number and the unit together in one character string. Else only the number is returned.}
+\value{If num is FALSE (default) function paste() is called to write the number and the unit together in one character string. Else only the number is returned.}
 
 \author{Carsten Vick (carsten.vick@campus.tu-berlin.de)}
 

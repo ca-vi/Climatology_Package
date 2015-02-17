@@ -1,10 +1,8 @@
-\name{FG_Klimatologie-package}
-\alias{FG_Klimatologie-package}
-\alias{FG_Klimatologie}
+\name{FGClimatology-package}
+\alias{FGClimatology-package}
+\alias{FGClimatology}
 \docType{package}
 \title{
-What the package does (short line)
-~~ package title ~~
 }
 \description{
 More about what it does (maybe more than one line)
@@ -12,11 +10,11 @@ More about what it does (maybe more than one line)
 }
 \details{
 \tabular{ll}{
-Package: \tab FG_Klimatologie\cr
+Package: \tab FGClimatology\cr
 Type: \tab Package\cr
-Version: \tab 1.0\cr
-Date: \tab 2014-05-08\cr
-License: \tab What license is it under?\cr
+Version: \tab 0.8\cr
+Date: \tab 2015-02-15\cr
+License: \tab GPL-3\cr
 }
 ~~ An overview of how to use the package, including the most important functions ~~
 }
