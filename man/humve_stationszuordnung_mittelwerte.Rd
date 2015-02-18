@@ -1,54 +1,33 @@
 \name{humve_stationszuordnung_mittelwerte}
 \alias{humve_stationszuordnung_mittelwerte}
-%- Also NEED an '\alias' for EACH other topic documented here.
-\title{AWS station
-%%  ~~function to do ... ~~
-}
+\title{HuMVe data will be cut according to the log.}
 \description{
-%%  ~~ A concise (1-5 lines) description of what the function does. ~~
-}
+The Human Response Meteorological Vehicle HuMVe is a movable meteorological station measuring different weather elements. Due to this movability only few data can be used for e.g. wind analysis. If a consistent log is written the big data table can be cut in a smaller one containing the station number where the vehicle was standing instead of a Recordnumber.}
 \usage{
-humve_stationszuordnung_mittelwerte(humvedata_meteo, humvedata_wind, humvedata_gill, protokolldata)
+humve_stationszuordnung_mittelwerte(humvedata_meteo, humvedata_wind, humvedata_gill, logdata)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{humvedata_meteo}{
-%%     ~~Describe \code{humvedata_meteo} here~~
+The "CR1000_HUMVE_Meteo.dat"" which was loaded with \link{read.logger}.
 }
   \item{humvedata_wind}{
-%%     ~~Describe \code{humvedata_wind} here~~
+The "CR1000_HUMVE_Wind.dat"" which was loaded with \link{read.logger}.
 }
   \item{humvedata_gill}{
-%%     ~~Describe \code{humvedata_gill} here~~
+The "CR1000_HUMVE_Gill_Windmaster.dat"" which was loaded with \link{read.logger}.
 }
-  \item{protokolldata}{
-%%     ~~Describe \code{protokolldata} here~~
+  \item{logdata}{
+The logdata which was loaded with \link{read.humvelog}
 }
 }
 \details{
-%%  ~~ If necessary, more details than the description above ~~
+This function gives out values which are aggregated. The WS and WD values were newly calculated using \link{cart2polar} on the U and V Vectors.
 }
 \value{
-%%  ~Describe the value returned
-%%  If it is a LIST, use
-%%  \item{comp1 }{Description of 'comp1'}
-%%  \item{comp2 }{Description of 'comp2'}
-%% ...
+Gives a aggregated and cutted data.frame with a 2nd column named station rather then RECORD
 }
-\references{
-%% ~put references to the literature/web site here ~
-}
+
 \author{
-%%  ~~who you are~~
-}
-\note{
-%%  ~~further notes~~
-}
-
-%% ~Make other sections like Warning with \section{Warning }{....} ~
-
-\seealso{
-%% ~~objects to See Also as \code{\link{help}}, ~~~
-}
-\examples{
+Carsten Vick
 }

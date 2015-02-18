@@ -8,11 +8,11 @@
 This function calculates the UTCI value for a given input data
 }
 \usage{
-calc_utci(x)
+calc_utci(data)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
-  \item{x}{
+  \item{data}{
 The input table must contain all relevant Biomet-Data for calculation as all radiation fluxes from all directions, relativ humidity (RH), air temperature (Ta), and wind speed.}
 }
 \details{
@@ -40,7 +40,10 @@ AlK akrug@mailbox.tu-berlin.de}
 www.utci.org
 }
 
-
+\examples{
+data(biomet)
+utci <- calc_utci(biomet)
+}
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.
 \keyword{ utci }

@@ -9,25 +9,26 @@
 # this calculation seems to be not correct due to wrong description in DIN EN ISO...
 
 # last Changes
-# 7.7.2014
+# 15.02.2015
 
-# change ∞C to K calculation to +273
+# rewriting some parts for better readability CV
+# change ?C to K calculation to +273
 # validation of function with ISO 7730:2005(E)
   
-calc_pmv = function(x, clo, met){
+calc_pmv = function(data, clo, met){
 
-  if (length(x[is.na(x)==TRUE]) > 0 ) 
+  if (sum(is.na(x)) > 0 ) 
     stop("Input data contains missing values. PMV calculation is not possible. Please remove NA's and try again.")
   
   # hier evtl. NA-Ausgabe einbauen
   
-mrt  = calc_mrt(x)
+mrt  = calc_mrt(data = data)
 
-pa    = x$RH * 10 * exp(16.6536 - 4030.183 / (x$Ta + 235))   # water vapur pressure [Pa]
+pa    = data$RH * 10 * exp(16.6536 - 4030.183 / (data$Ta + 235))   # water vapur pressure [Pa]
 
-clo = if (missing(clo)) {clo=.6} else {clo=clo}
+clo = if (missing(clo)) clo = .6
    # clo = .6 --> clothing factor f√ºr leichte Sommerbekleidung (siehe VDI oder DIN ISO 7730)
-met = if (missing(met)) {met=2.} else {met=met}
+met = if (missing(met)) met = 2
   # Walking (on level surface) 0.9 m/s, 3.2 km/h, 2.0 mph
   # ASHARE 2004 Thermal Environmental Conditions for Human Occupancy Wm^-2
 
@@ -42,12 +43,12 @@ icl   = .155*clo    # thermal insulation of the clothing in M2K/W
 fcl   = if (icl <= .078)  {1+1.29*icl} else {1.05+0.645*icl} # clothing area factor
 
 #convection
-hcf   = 12.1*sqrt(x$Wind_Speed) # heat transf. coeff. by forced convection
-ta_k  = x$Ta+273 # air temperature in Kelvin
+hcf   = 12.1*sqrt(data$Wind_Speed) # heat transf. coeff. by forced convection
+ta_k  = data$Ta+273 # air temperature in Kelvin
 tr_k  = mrt+273 # mean radiant temperature in Kelvin
 
 #CALCULATE SURFACE TEMPERATURE OF CLOTHING BY ITERATION
-tcla  = ta_k + (35.5-x$Ta) / (3.5*icl+.1)
+tcla  = ta_k + (35.5-data$Ta) / (3.5*icl+.1)
 
 p1    = icl*fcl
 p2    = p1*3.96
@@ -80,9 +81,9 @@ tcl   =100*xn-273 # surface temperature of the clothing
 hl1   = 3.05*.001*(5733-6.99*mw-pa)               # heat loss diff. through skin
 if (mw > 58.15) {hl2=.42*(mw-58.15)} else {hl2=0} # heat loss by sweating (comfort)
 hl3   = 1.7 * .00001 * m * (5867-pa)              # latent respiration heat loss
-hl4   = 0.0014*m*(34-x$Ta)                        # dry respiration heat loss
+hl4   = 0.0014*m*(34-data$Ta)                        # dry respiration heat loss
 hl5   = 3.96*fcl*(xn^4-(tr_k/100)^4)              # heat loss by radiation
-hl6   = fcl * hc * (tcl-x$Ta)                     # heat loss by convection
+hl6   = fcl * hc * (tcl-data$Ta)                     # heat loss by convection
 
 ts = 0.028+0.303*exp(-0.036*m)
 pmv = ts*(mw-hl1-hl2-hl3-hl4-hl5-hl6)

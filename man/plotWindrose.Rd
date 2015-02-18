@@ -3,14 +3,14 @@
 \title{plotWindrose help function called by windrose
 }
 \description{
-%%  ~~ A concise (1-5 lines) description of what the function does. ~~
+This function was extracted from the no longer supported climatol package. It creates a windrose with bluish colors.
 }
 \usage{
 plotWindrose(frec, fnum = 4, fint = 5, flab = 2, ang = 3 * pi/16, col = rainbow(10, 0.5, 0.92, start = 0.33, end = 0.2), margen = c(0, 0, 1, 0), key = TRUE, uni = "m/s", ...)
 }
 \arguments{
   \item{frec}{
-%%     ~~Describe \code{frec} here~~
+This has to be a matrix or a data.frame containing frequencies of different classes (like a histogramm). It can be 2-dimensional. (e.g. windspeed and winddirection)
 }
   \item{fnum}{
 %%     ~~Describe \code{fnum} here~~
@@ -44,25 +44,19 @@ plotWindrose(frec, fnum = 4, fint = 5, flab = 2, ang = 3 * pi/16, col = rainbow(
 %%  ~~ If necessary, more details than the description above ~~
 }
 \value{
-%%  ~Describe the value returned
-%%  If it is a LIST, use
-%%  \item{comp1 }{Description of 'comp1'}
-%%  \item{comp2 }{Description of 'comp2'}
-%% ...
+A plot is returned.
 }
 \references{
-%% ~put references to the literature/web site here ~
+José A. Guijarro <jguijarrop@aemet.es>
 }
 \author{
-%%  ~~who you are~~
+José A. Guijarro <jguijarrop@aemet.es>
 }
-\note{
-%%  ~~further notes~~
-}
-
-%% ~Make other sections like Warning with \section{Warning }{....} ~
 
 \seealso{
-%% ~~objects to See Also as \code{\link{help}}, ~~~
+\link{cart2polar}
+\link{windrose}
 }
-\examples{}
+\examples{
+
+}

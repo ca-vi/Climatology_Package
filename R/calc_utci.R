@@ -20,8 +20,8 @@
 # va10m   - wind velocity (10 m) in m/s
 # RH      - relative humidity in percent
 
-calc_utci = function(x) {
-mrt = calc_mrt(x)
+calc_utci = function(data) {
+mrt = calc_mrt(data=data)
 
 ##########################
 # calculates saturation vapour pressure over water in hPa for input air temperature (ta) in celsius according to:
@@ -37,18 +37,18 @@ g=c( -2.8365744E3,
      -1.8680009E-13,
       2.7150305)
    
-  tk = x$Ta + 273.15 		# air temp in K
+  tk = data$Ta + 273.15 		# air temp in K
   es = g[8] * log(tk)
   for (i in 1:7) {
   es = g[i] * (tk^(i-3)) + es
   }
 
   es = exp(es)*0.01	      # *0.01: convert Pa to hPa
-  ehPa = es * x$RH/100.00000000
+  ehPa = es * data$RH/100.00000000
 
   Pa = ehPa/10.0; #!~ use vapour pressure in kPa
-  va = (log(10/0.01)/log(1.77/0.01))*x$Wind_Speed
-  Ta = x$Ta
+  va = (log(10/0.01)/log(1.77/0.01))*data$Wind_Speed
+  Ta = data$Ta
   D_Tmrt = mrt - Ta
 
 UTCI = Ta+

@@ -1,48 +1,35 @@
 \name{windrose}
 \alias{windrose}
-%- Also NEED an '\alias' for EACH other topic documented here.
-\title{plot.windrose
-%%  ~~function to do ... ~~
+\title{windrose}{
+Sorting windspeed and winddirection in classes and ploting a windrose.
 }
 \description{
-%%  ~~ A concise (1-5 lines) description of what the function does. ~~
+To plot a windrose the data has to be classified. Here we use 16 winddirection classes and 4 windspeed classes.
 }
 \usage{
-windrose(windspeed, winddir)
+windrose(windspeed, winddir, r=5, p=10, title=NULL, ...)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
-  \item{windspeed}{
-%%     ~~Describe \code{windspeed} here~~
-}
-  \item{winddir}{
-%%     ~~Describe \code{winddir} here~~
-}
+  \item{windspeed}{A vector of windspeeds}
+  \item{winddir}{A vector of winddirections}
+  \item{r}{The number of circles drawn}
+  \item{p}{The percentage jumps between each circle}
+  \item{\dots}
 }
 \details{
-%%  ~~ If necessary, more details than the description above ~~
+A frequency table is generated and given to plotWindrose, which will create a plot.
 }
 \value{
-%%  ~Describe the value returned
-%%  If it is a LIST, use
-%%  \item{comp1 }{Description of 'comp1'}
-%%  \item{comp2 }{Description of 'comp2'}
-%% ...
-}
-\references{
-%% ~put references to the literature/web site here ~
-}
-\author{
-%%  ~~who you are~~
-}
-\note{
-%%  ~~further notes~~
+Plotting takes place
 }
 
-%% ~Make other sections like Warning with \section{Warning }{....} ~
+\author{Britta Jaenicke and Carsten Vick}
 
 \seealso{
-%% ~~objects to See Also as \code{\link{help}}, ~~~
+\link{read.logger}
 }
 \examples{
+data(AWS_wind)
+windrose(windspeed = AWS_wind$Wind_Speed, winddir = AWS_wind$Wind_Direction)
 }
