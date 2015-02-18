@@ -1,8 +1,6 @@
 \name{windrose}
 \alias{windrose}
-\title{windrose}{
-Sorting windspeed and winddirection in classes and ploting a windrose.
-}
+\title{Sorting windspeed and winddirection in classes and ploting a windrose.}
 \description{
 To plot a windrose the data has to be classified. Here we use 16 winddirection classes and 4 windspeed classes.
 }

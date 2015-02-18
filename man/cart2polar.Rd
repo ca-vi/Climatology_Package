@@ -2,7 +2,7 @@
 \alias{cart2polar}
 \title{Function to convert from cartesian coordinates to polar coordinates.
 }
-\description{The Function takes the u and v vectors of e.g. wind data in WMO convention and converts it into polar coordinates usable for polar plots e.g. windroses. NOTE: the polar coordinates are exactly vice versa in direction, to be usable for a windrose plot. See \link {windrose}
+\description{The Function takes the u and v vectors of e.g. wind data in WMO convention and converts it into polar coordinates usable for polar plots e.g. windroses. NOTE: the polar coordinates are exactly vice versa in direction, to be usable for a windrose plot. See \link{windrose}
 }
 \usage{
 cart2polar(u, v)
@@ -15,7 +15,7 @@ cart2polar(u, v)
 
 \author{Carsten Vick (carsten.vick@campus.tu-berlin.de)}
 
-\license{GPL3}
+\license{GPL>=3}
 \examples{
 data(AWS_fluxes)
 wind_polar <- cart2polar(u = AWS_fluxes$u_Avg, v = AWS_fluxes$v_Avg)

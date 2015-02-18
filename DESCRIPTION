@@ -1,8 +1,8 @@
 Package: FGClimatology
 Type: Package
 Title: Package for the chair of Climatology at TU Berlin
-Version: 0.7
-Date: 2015-02-11
+Version: 0.8
+Date: 2015-02-18
 Author: Carsten Vick, Alexander Krug, Britta Jaenicke, Lars Schulz
 Maintainer: Carsten Vick <carsten.vick@campus.tu-berlin.de>
 Description: This package is created not only for teaching purposes but for science production in general. With its content the user should be able to read in, process and put out data produced in our institute. This data has a special format which results from the (mostly) Campbell Scientific-Logger settings.
