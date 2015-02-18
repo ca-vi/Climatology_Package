@@ -7,22 +7,19 @@ To plot a windrose the data has to be classified. Here we use 16 winddirection c
 \usage{
 windrose(windspeed, winddir, r=5, p=10, title=NULL, ...)
 }
-%- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{windspeed}{A vector of windspeeds}
   \item{winddir}{A vector of winddirections}
   \item{r}{The number of circles drawn}
   \item{p}{The percentage jumps between each circle}
-  \item{\dots}
+  \item{ \dots }
 }
 \details{
 A frequency table is generated and given to plotWindrose, which will create a plot.
 }
 \value{
 Plotting takes place
-}
-
-\author{Britta Jaenicke and Carsten Vick}
+}\author{Britta Jaenicke and Carsten Vick}
 
 \seealso{
 \link{read.logger}

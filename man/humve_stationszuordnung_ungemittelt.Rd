@@ -1,5 +1,5 @@
-\name{humve_stationszuordnung_mittelwerte}
-\alias{humve_stationszuordnung_mittelwerte}
+\name{humve_stationszuordnung_ungemittelt}
+\alias{humve_stationszuordnung_ungemittelt}
 \title{HuMVe data will be cut according to the log.}
 \description{
 The Human Response Meteorological Vehicle HuMVe is a movable meteorological station measuring different weather elements. Due to this movability only few data can be used for e.g. wind analysis. If a consistent log is written the big data table can be cut in a smaller one containing the station number where the vehicle was standing instead of a Recordnumber.}

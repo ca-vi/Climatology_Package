@@ -17,7 +17,7 @@
   
 calc_pmv = function(data, clo, met){
 
-  if (sum(is.na(x)) > 0 ) 
+  if (sum(is.na(data)) > 0 ) 
     stop("Input data contains missing values. PMV calculation is not possible. Please remove NA's and try again.")
   
   # hier evtl. NA-Ausgabe einbauen

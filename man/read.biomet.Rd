@@ -7,7 +7,7 @@ Reads in the three pieces of datasets which is created by our biomet-station.
 The function takes the different tables and merges them. Then the less important or redundant columns get sorted out.
 }
 \usage{
-read_BIOMET(file_bm1, file_bm2, file_wm, all = F)
+read.biomet(file_bm1, file_bm2, file_wm, all = F)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
