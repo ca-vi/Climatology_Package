@@ -11,11 +11,11 @@ cart2polar(u, v)
   \item{u}{The Vector in u-Direction (WMO convention is East)}
   \item{v}{The Vector in v-Direction (WMO convention is North)}
 }
-\value{You get a data.frame with two columns. First column named "r" is the Modulus (combined Vectorlength), second column named "theta" is the Argument(degree, where v is 0° and u is 90°)}
+\value{You get a data.frame with two columns. First column named "r" is the Modulus (combined Vectorlength), second column named "theta" is the Argument(degree, where v is 0 deg and u is 90 deg)}
 
 \author{Carsten Vick (carsten.vick@campus.tu-berlin.de)}
 \examples{
-data(AWS_fluxes);
-wind_polar <- cart2polar(u = AWS_fluxes$u_Avg, v = AWS_fluxes$v_Avg);
+data(AWS_fluxes)
+wind_polar <- cart2polar(u = AWS_fluxes$u_Avg, v = AWS_fluxes$v_Avg)
 windrose(windspeed = wind_polar$r, winddir = wind_polar$theta)
 }

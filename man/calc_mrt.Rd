@@ -38,8 +38,8 @@ Thorsson S, Lindberg F, Eliasson I, Holmer B. 2007. Different methods for estima
 \author{
 AlK akrug@mailbox.tu-berlin.de}
 \examples{
-data(biomet);
+data(biomet)
 mrt <- calc_mrt(biomet)
 }
-\keyword{ 'mean radiant temperature'}
+\keyword{ mean radiant temperature}
 \keyword{ mrt }

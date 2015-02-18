@@ -16,7 +16,7 @@ The input table must contain all relevant Biomet-Data for calculation as all rad
   \item{utci}{A numeric vector containing the calculated utci}
 }
 \references{
-Fiala, D., G. Havenith, P. Broede, B. Kampmann and G. Jendritzky 2012: UTCI-Fiala multi-node model of human heat trans- fer and temperature regulation. – International Journal of Biometeorology 56 (3): 429-441
+Fiala, D., G. Havenith, P. Broede, B. Kampmann and G. Jendritzky 2012: UTCI-Fiala multi-node model of human heat transfer and temperature regulation. – International Journal of Biometeorology 56 (3): 429-441
 }
 \author{
 AlK akrug@mailbox.tu-berlin.de}
@@ -24,7 +24,7 @@ AlK akrug@mailbox.tu-berlin.de}
 www.utci.org
 }
 \examples{
-data(biomet);
+data(biomet)
 utci <- calc_utci(biomet)
 }
 \keyword{utci}

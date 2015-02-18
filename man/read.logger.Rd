@@ -4,7 +4,7 @@
 \title{Read in datasets from Campbell Loggers which have a special presetting (TOA5 long header)}
 \description{Creates a data.frame and alters the Timestamp into a date-time Format}
 \usage{
-read.logger(file, info = TRUE, ...)
+read.logger(file, info = FALSE, ...)
 }
 \arguments{
   \item{file}{character, indicating the Directory path to your data e.g. "/home/myRProject/mydata.txt"}

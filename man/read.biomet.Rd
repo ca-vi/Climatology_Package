@@ -30,9 +30,6 @@ There can be some NAs in the first rows, due to merging the data.frames by TIMES
 \value{
 A data.frame containing everything for \link{calc_mrt} , \link{calc_pmv} and \link{calc_utci}.
 }
-\references{
-
-}
 \author{
 Alexander Krug
 }
