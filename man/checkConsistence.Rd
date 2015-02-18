@@ -1,6 +1,5 @@
 \name{checkConsistence}
 \alias{checkConsistence}
-%- Also NEED an '\alias' for EACH other topic documented here.
 \title{Check a dataset for inconsistencies in Timestamp or Recordnumber}
 \description{The function will search through the dataset and checks whether the Timestamp is equidistant and the Recordnumber is growing by an increment of 1. Creates an inconsistency.txt when finding any inconsistencies}
 \usage{
@@ -13,6 +12,7 @@ checkConsistence(data, info=TRUE)
 \value{
   \item{logical}{Returning TRUE if everything was fine, returning FALSE otherwise.}
   \item{Console message}{If info = TRUE and there is something fishy going on, you'll get a message.}
+  \item{info}{Logical, shall a .txt be written?}
   \item{inconsistency.txt}{When info = TRUE: every row listed here is damaged. Visiting these directly often gives insight to the type of error.}
 }
 \references{www.klima.tu-berlin.de}

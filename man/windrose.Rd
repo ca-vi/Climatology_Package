@@ -12,6 +12,7 @@ windrose(windspeed, winddir, r=5, p=10, title=NULL, ...)
   \item{winddir}{A vector of winddirections}
   \item{r}{The number of circles drawn}
   \item{p}{The percentage jumps between each circle}
+  \item{title}{Wether or not the plot shall have a main title}
   \item{ \dots }
 }
 \details{
