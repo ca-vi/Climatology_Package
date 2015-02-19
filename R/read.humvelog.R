@@ -7,7 +7,7 @@ read.humvelog <- function ( file, info=TRUE, ...) {
   data$beginn <- as.POSIXct(strptime(paste(datum, data$beginn),format="%Y-%m-%d %H:%M:%S"))
   data$ende <- as.POSIXct(strptime(paste(datum, data$ende),format="%Y-%m-%d %H:%M:%S"))
   data$bemerkungen <- as.character(data$bemerkungen)
-  data <- data[complete.cases(data),]
+  data <- data[complete.cases(data[,2:3]),]
   if (info==TRUE) print(str(data))
   invisible(data)
 }
