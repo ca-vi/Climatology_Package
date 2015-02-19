@@ -6,6 +6,7 @@ read.humvelog <- function ( file, info=TRUE, ...) {
   if(sum(is.na(data$ende)) == length(data$ende)) stop("Keine Ende-Zeit lesbar.")
   data$beginn <- as.POSIXct(strptime(paste(datum, data$beginn),format="%Y-%m-%d %H:%M:%S"))
   data$ende <- as.POSIXct(strptime(paste(datum, data$ende),format="%Y-%m-%d %H:%M:%S"))
+  data$KT.19 <- as.numeric(data$KT.19)
   data <- data[complete.cases(data[,2:3]),c(1:3,5)]
   if (info==TRUE) print(str(data))
   invisible(data)
