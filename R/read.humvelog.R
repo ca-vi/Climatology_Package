@@ -1,13 +1,21 @@
 read.humvelog <- function ( file, info=TRUE, ...) {
-  data <- read.csv2 (file, skip=5, ...)
-  if(!exists(data$beginn) | !exists(data$ende)) stop("Could not read file properly. Please check for wrong number of rows. read.csv2(skip=5)")
-  datum <- as.Date(read.csv2 (file)[2,6],format="%d.%m.%Y")
-  if(sum(is.na(data$beginn)) == length(data$beginn)) stop("Keine Beginn-Zeit lesbar.")
-  if(sum(is.na(data$ende)) == length(data$ende)) stop("Keine Ende-Zeit lesbar.")
-  data$beginn <- as.POSIXct(strptime(paste(datum, data$beginn),format="%Y-%m-%d %H:%M:%S"))
-  data$ende <- as.POSIXct(strptime(paste(datum, data$ende),format="%Y-%m-%d %H:%M:%S"))
-  data$bemerkungen <- as.character(data$bemerkungen)
+  if (!require(XLConnect)) install.packages("XLConnect")
+  library(XLConnect)
+  
+  wb <- loadWorkbook(file)
+  datum <- readWorksheet(wb, sheet = "Humve", region = "E4", header=FALSE)
+  if (length(datum) == 0) stop("Es muss ein Datum angegeben werden")
+  datum <- as.numeric(datum[1,1])
+  
+  data <- readWorksheet(wb, sheet = "Humve", startRow = 7)[,-c(4,5,6)]
+  names(data) <- c(names(data)[1:3], "KT19", names(data[5]))
+  
+  data$Beginn <- data$Beginn + datum + 2209078800
+  data$Ende <- data$Ende + datum + 2209078800
+  data$Bemerkungen <- as.character(data$Bemerkungen)
+  data$Bemerkungen[is.na(data$Bemerkungen)] <- ""
   data <- data[complete.cases(data),]
+  
   if (info==TRUE) print(str(data))
   invisible(data)
 }
