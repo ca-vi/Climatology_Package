@@ -15,5 +15,3 @@ windspeed_conversion(x, unit=c("m/s","km/h","B","kn"), into=c("m/s","km/h","B","
 }
 \value{If num is FALSE (default) function paste() is called to write the number and the unit together in one character string. Else only the number is returned.}
 \author{Carsten Vick (carsten.vick@campus.tu-berlin.de)}
-\license{GPL3}
-

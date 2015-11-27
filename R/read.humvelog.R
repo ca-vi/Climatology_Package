@@ -1,4 +1,5 @@
 read.humvelog <- function ( file, info=TRUE, ...) {
+
   if (!require(XLConnect)) install.packages("XLConnect")
   library(XLConnect)
   

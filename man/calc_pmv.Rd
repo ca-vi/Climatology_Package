@@ -27,20 +27,10 @@ VDI 3787 Blatt 2
 \author{
 AlK akrug@mailbox.tu-berlin.de
 }
-\note{
-%%  ~~further notes~~
-}
 
-%% ~Make other sections like Warning with \section{Warning }{....} ~
-
-\seealso{
-%% ~~objects to See Also as \code{\link{help}}, ~~~
-}
 \examples{
-data(biomet)
+data(biomet);
 pmv <- calc_pmv(biomet)
 }
-% Add one or more standard keywords, see file 'KEYWORDS' in the
-% R documentation directory.
 \keyword{Biomet}
-\keyword{pmv}%   __ONLY ONE__ keyword per line
+\keyword{pmv}

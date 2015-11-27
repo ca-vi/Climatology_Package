@@ -10,8 +10,10 @@ humve_stationszuordnung_mittelwerte <- function (humvedata_meteo, humvedata_wind
   humvedata_gill  <-  humvedata_gill  [humvedata_gill$TIMESTAMP   >= min(logdata$Beginn) & humvedata_gill$TIMESTAMP   <= max(logdata$Ende),]
   
   
+
   for (i in seq_along(logdata$Station) )  {
     standzeitmittelung_daten <- sapply(sapply (cbind(humvedata_meteo[,(3:7)],humvedata_meteo[,(10:12)],humvedata_wind[,3:5],humvedata_gill[,3:4],humvedata_gill[,7:8]) [ humvedata_meteo$TIMESTAMP >= logdata$Beginn[i] & humvedata_meteo$TIMESTAMP <= logdata$Ende[i] ,  ] , mean), round, 2)
+
     new.data[i,(3:17)] <- standzeitmittelung_daten
     }
   new.data[,11:12] <- cart2polar(u = new.data[,14], v = new.data[,15])
@@ -29,6 +31,7 @@ humve_stationszuordnung_ungemittelt <- function (humvedata_meteo, humvedata_wind
   humvedata_wind  <-  humvedata_wind  [humvedata_wind$TIMESTAMP   >= min(logdata$Beginn) & humvedata_wind$TIMESTAMP   <= max(logdata$Ende),]
   humvedata_gill  <-  humvedata_gill  [humvedata_gill$TIMESTAMP   >= min(logdata$Beginn) & humvedata_gill$TIMESTAMP   <= max(logdata$Ende),]
   
+
   for (i in seq_along(logdata$Station)) {
     meteo <- humvedata_meteo[humvedata_meteo$TIMESTAMP >= logdata$Beginn[i] & humvedata_meteo$TIMESTAMP <= logdata$Ende[i],]
     wind <- humvedata_wind[humvedata_wind$TIMESTAMP >= logdata$Beginn[i] & humvedata_wind$TIMESTAMP <= logdata$Ende[i],]

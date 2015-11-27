@@ -2,7 +2,7 @@ read.logger <- function (file, info=FALSE, row.names = 2, ...) {
   
   data <- read.csv(file, header = FALSE, skip = 4, na.strings="NAN", ...)
   names(data) <- names(read.csv(file, skip = 1))
-  if (!exists(data$TIMESTAMP | data$RECORD)){
+  if (!exists("TIMESTAMP", where = data) | !exists("RECORD", where = data)){
     stop("Could not read the data properly. Please check the head of table in the file.")
   } else {
   
