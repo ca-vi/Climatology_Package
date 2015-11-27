@@ -6,7 +6,7 @@
 read.humvelog(file, info = TRUE, ...)
 }
 \arguments{
-  \item{file}{A .csv file saved from excel. To Do: Create an Excel Connection using package XLConnect}
+  \item{file}{Excel file, where all humve-standing times are logged. Dont forget to fill in the Date.}
   \item{info}{If TRUE prints the str()}
   \item{\dots}{More arguments given to read.table}
 }

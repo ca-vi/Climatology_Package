@@ -8,6 +8,7 @@ checkConsistence(data, info=TRUE)
 }
 \arguments{
   \item{data}{    Data from the \link{read.logger} function .Their has to be one column named "TIMESTAMP" and one called "RECORD"}
+  \item{info}{    Logical. More Info and inconsistency.txt}
 }
 \details{This function uses the most frequent distance between TIMESTAMPs. In very short data.frames this could lead to an wrong TIMESTAMP.}
 \value{
