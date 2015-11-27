@@ -13,7 +13,6 @@ windrose(windspeed, winddir, r=5, p=10, title=NULL, ...)
   \item{r}{The number of circles drawn}
   \item{p}{The percentage jumps between each circle}
   \item{title}{Title in Plotwindow}
-  \item{ \dots }
 }
 \details{
 A frequency table is generated and given to plotWindrose, which will create a plot.
