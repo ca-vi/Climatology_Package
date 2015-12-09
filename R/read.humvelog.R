@@ -1,5 +1,5 @@
 read.humvelog <- function ( file, info=TRUE, ...) {
-  XLConnect::wb <- loadWorkbook(file)
+  wb <- XLConnect::loadWorkbook(file)
   datum <- XLConnect::readWorksheet(wb, sheet = "Humve", region = "E4", header=FALSE)
   if (length(datum) == 0) stop("Es muss ein Datum angegeben werden")
   datum <- as.numeric(datum[1,1])

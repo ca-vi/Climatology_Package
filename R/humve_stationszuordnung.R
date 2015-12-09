@@ -19,7 +19,7 @@ humve_stationszuordnung_mittelwerte <- function (humvedata_meteo, humvedata_wind
   new.data[,11:12] <- cart2polar(u = new.data[,14], v = new.data[,15])
   new.data$Station <- logdata$Station
   new.data$TIMESTAMP <- logdata$Ende
-  new.data$KT19 <- logdata$KT.19
+  new.data$KT19 <- logdata$KT19
   print(str(new.data))
   invisible(new.data)
 }
@@ -37,7 +37,7 @@ humve_stationszuordnung_ungemittelt <- function (humvedata_meteo, humvedata_wind
     wind <- humvedata_wind[humvedata_wind$TIMESTAMP >= logdata$Beginn[i] & humvedata_wind$TIMESTAMP <= logdata$Ende[i],]
     gill <- humvedata_gill[humvedata_gill$TIMESTAMP >= logdata$Beginn[i] & humvedata_gill$TIMESTAMP <= logdata$Ende[i],]
     Station <- rep(logdata$Station[i],length.out=length(meteo[,1]))
-    KT19 <- rep(logdata$KT.19[i],length.out=length(meteo[,1]))
+    KT19 <- rep(logdata$KT19[i],length.out=length(meteo[,1]))
   
     if (!exists("result")){
       result <- as.data.frame(cbind(meteo[,1],Station,meteo[,3:7],meteo[,10:12],wind[,3:5],gill[,3:4],gill[,7:8],KT19))
